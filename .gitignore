@@ -1,3 +1,5 @@
 *.jpg
 images/
-targot_login/
+/targot_login
+*.css
+*.html
