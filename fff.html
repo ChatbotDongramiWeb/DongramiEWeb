@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tarot Card Fanning</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        #card-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .card {
+            position: absolute;
+            background-image: url('card.jpg');
+            background-size: cover;
+            backface-visibility: hidden;
+            transform-origin: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        .center-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            background-image: url('card.jpg');
+            background-size: cover;
+            cursor: pointer;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="card-container">
+        <div id="initial-card" class="center-card"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const container = document.getElementById('card-container');
+            const initialCard = document.getElementById('initial-card');
+            const cardCount = 60;
+            const startAngle = -(Math.PI / 6);
+            const maxEndAngle = 3.6 * Math.PI / 3; // 최대 270도
+            const visibleAngleRange = maxEndAngle - startAngle;
+            const delayBetweenCards = 30; // milliseconds
+
+            let isCardsFanned = false;
+
+            function resizeHandler() {
+                const cardWidth = container.offsetWidth * 0.1; // 10% of container's width
+                const cardHeight = container.offsetHeight * 0.2; // 20% of container's height
+                const radius = container.offsetWidth * 0.4; // 40% of container's width
+
+                initialCard.style.width = `${cardWidth}px`;
+                initialCard.style.height = `${cardHeight}px`;
+
+                const cards = document.querySelectorAll('.card');
+                cards.forEach((card, index) => {
+                    const angle = (index / cardCount) * visibleAngleRange + startAngle;
+                    const x = container.offsetWidth / 2 + radius * Math.cos(angle) - cardWidth / 2;
+                    const y = container.offsetHeight / 2 + radius * Math.sin(angle) - cardHeight / 2;
+                    card.style.width = `${cardWidth}px`;
+                    card.style.height = `${cardHeight}px`;
+                    card.style.transform = `translate(${x}px, ${y}px) rotate(${angle + Math.PI / 2}rad)`;
+                });
+            }
+
+            initialCard.addEventListener('click', fanCards);
+            window.addEventListener('resize', resizeHandler);
+
+            function fanCards() {
+                if (isCardsFanned) return;
+                isCardsFanned = true;
+                initialCard.style.display = 'none';
+
+                const cardWidth = container.offsetWidth * 0.1;
+                const cardHeight = container.offsetHeight * 0.2;
+                const radius = container.offsetWidth * 0.4;
+
+                for (let i = 0; i < cardCount; i++) {
+                    setTimeout(() => {
+                        const angle = (i / cardCount) * visibleAngleRange + startAngle;
+                        const x = container.offsetWidth / 2 + radius * Math.cos(angle) - cardWidth / 2;
+                        const y = container.offsetHeight / 2 + radius * Math.sin(angle) - cardHeight / 2;
+
+                        const card = document.createElement('div');
+                        card.className = 'card';
+                        card.style.width = `${cardWidth}px`;
+                        card.style.height = `${cardHeight}px`;
+                        card.style.transform = `translate(${x}px, ${y}px) rotate(${angle + Math.PI / 2}rad)`;
+                        card.style.opacity = 1;
+
+                        container.appendChild(card);
+                    }, i * delayBetweenCards);
+                }
+
+                // Adjust card positions on window resize
+                resizeHandler();
+            }
+        });
+    </script>
+</body>
+</html>

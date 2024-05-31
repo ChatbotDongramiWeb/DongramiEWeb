@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    overflow: hidden; /* 스크롤바 숨기기 */
+}
+
+#card-container {
+    position: relative;
+    width: 5000px;
+    height: 3000px;
+}
+
+canvas {
+    cursor: grab;
+}
+
+canvas:active {
+    cursor: grabbing;
+}
