@@ -1,0 +1,134 @@
+* {
+    margin:0;
+    padding:0;
+}
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    flex-wrap: wrap; /* 반응형을 위해 flex-wrap 추가 */
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #ddd;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-container button {
+    margin-right: 10px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    margin: 10px 0; /* 상하 여백 추가 */
+}
+
+.search-bar select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    margin: 20px;
+    position: relative;
+    background-color: aquamarine;
+    flex-direction: column;
+    padding: 20px; /* 내부 요소의 여백을 위한 패딩 */
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+}
+
+.footer button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.footer button.save {
+    background-color: #007bff;
+    color: white;
+}
+
+.footer button.review {
+    background-color: #555;
+    color: white;
+}
+
+.footer button.share {
+    background-color: #28a745;
+    color: white;
+}
+
+/* 카드 관련 스타일 */
+#card-container {
+    position: relative;
+    background-color: magenta;
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    position: absolute;
+    background-image: url('../images/card.jpg');
+    background-size: contain; /* 이미지가 잘리지 않도록 조정 */
+    background-repeat: no-repeat; /* 이미지 반복 제거 */
+    background-position: center; /* 이미지 중앙 정렬 */
+    backface-visibility: hidden;
+    transform-origin: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+
+.center-card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-image: url('../images/card.jpg');
+    background-size: contain; /* 이미지가 잘리지 않도록 조정 */
+    background-repeat: no-repeat; /* 이미지 반복 제거 */
+    background-position: center; /* 이미지 중앙 정렬 */
+    cursor: pointer;
+    transform: translate(-50%, -50%);
+}
+
+#character {
+    width:100px;
+    height:150px;
+}
+
+#img_section {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+

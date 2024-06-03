@@ -1,4 +1,6 @@
 *.jpg
 images/
 /targot_login
-*.css
+/tarot_login_board
+!images/card.jpg
+!images/basic.jpg
