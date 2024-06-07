@@ -8,41 +8,69 @@ body {
     flex-direction: column;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #EFECF4;
     overflow: hidden;
 }
 
 .header {
     display: flex;
-    flex-wrap: wrap; /* 반응형을 위해 flex-wrap 추가 */
     justify-content: space-between;
-    align-items: center;
     padding: 10px 20px;
     background-color: #f8f8f8;
     border-bottom: 1px solid #ddd;
 }
 
-.logo-container {
+.user-actions {
+    display: flex;
+    gap: 5px;
+}
+
+.user-actions span {
+    padding: 8px 16px;
+    border: none;
     display: flex;
     align-items: center;
 }
 
-.logo-container button {
+#user-image {
+    width: 40px;
+    height: 40px;
+    background-color: #666;
+    border-radius: 50%;
+}
+
+#kakao {
+    width: 40px;
+    height: 40px;
+    background-color: #666;
+    border-radius: 50%;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px; /* 수정된 부분 */
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
     margin-right: 10px;
 }
 
-.search-bar {
-    display: flex;
-    align-items: center;
-    flex-grow: 1;
-    margin: 10px 0; /* 상하 여백 추가 */
+.site-name {
+    font-size: 18px;
+    color: #666;
 }
 
-.search-bar select {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+/*본문 영역*/
 
 .content {
     display: flex;
@@ -51,46 +79,15 @@ body {
     flex-grow: 1;
     margin: 20px;
     position: relative;
-    background-color: aquamarine;
+    background-color: #EFECF4;
     flex-direction: column;
     padding: 20px; /* 내부 요소의 여백을 위한 패딩 */
-}
-
-.footer {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    background-color: #f8f8f8;
-    border-top: 1px solid #ddd;
-}
-
-.footer button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-.footer button.save {
-    background-color: #007bff;
-    color: white;
-}
-
-.footer button.review {
-    background-color: #555;
-    color: white;
-}
-
-.footer button.share {
-    background-color: #28a745;
-    color: white;
 }
 
 /* 카드 관련 스타일 */
 #card-container {
     position: relative;
-    background-color: magenta;
+    background-color: #EFECF4;
     width: 100%;
     height: 100%;
 }
@@ -151,22 +148,22 @@ body {
 #card_past, #card_present, #card_future {
     width: 100px;
     height: 150px;
-    border: 2px dotted #d1d0d0;
+    border: 2px dotted #928f8fbd;
     display: flex;
     align-items: center;
     justify-content: center; /* 내용이 중앙에 오도록 조정 */
-    border-radius: 10%;
+    border-radius: 20%;
 }
 
 #showResult {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    bottom: 8%;
-    background-color: #007bff; /* footer의 save 버튼과 같은 색상 */
+    bottom: 5%;
+    background-color: #906DAC; /* footer의 save 버튼과 같은 색상 */
     color: white;
     width: 150px;
-    height: 30px;
+    height: 45px;
     border: none;
     border-radius: 4px; /* footer 버튼과 같은 border-radius */
     cursor: pointer; /* cursor 모양을 pointer로 변경 */
@@ -179,9 +176,8 @@ body {
 .card-labels{
     position: absolute;
     bottom: 60%;
-    left: 1%;
     display: flex;
-    gap: 85px;
+    gap: 80px;
 }
 
 #labels_past, #labels_present, #labels_future {
@@ -191,3 +187,5 @@ body {
     align-items: center;
     justify-content: center; /* 내용이 중앙에 오도록 조정 */
 }
+
+

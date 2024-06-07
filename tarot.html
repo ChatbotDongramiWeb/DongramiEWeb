@@ -5,26 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>카드 해석 페이지</title>
     <link rel="stylesheet" href="./css/tarot.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div class="header">
+    <nav class="header">
         <div class="logo-container">
-            <button>로고</button>
-            <span>동그라미</span>
+            <a href="#" class="logo-link">로고</a>
+            <span class="site-name">동그라미</span>
         </div>
-        <div class="search-bar">
-            <select>
-                <option>대주제</option>
-                <option>소주제1</option>
-                <option>소주제2</option>
-                <option value="3">소주제3</option>
-            </select>
+        <div class="header-actions">
+            <div class="user-actions">
+                <span>연애</span>
+                <span>금전</span>
+                <span>직업</span>
+                <span>대인관계</span>
+                <span>MBTI</span>
+            </div>
+            <div class="user-info">
+                <div id="user-image"></div>
+                <span>회원 이름</span>
+                <div id="kakao"></div>
+            </div>
         </div>
-        <div>
-            <button>회원가입</button>
-            <button>로그인</button>
-        </div>
-    </div>
+    </nav>
     <div class="content">
         <div id="card-container">
             <div id="img_section">
@@ -43,11 +48,6 @@
             </div>
             <button name="showResult" id="showResult">결과 보기</button>
         </div>  
-    </div>
-    <div class="footer">
-        <button class="save">결과 저장</button>
-        <button class="review">리뷰</button>
-        <button class="share">친구에게 공유하기</button>
     </div>
     <script src="./js/tarot.js"></script>
 </body>
